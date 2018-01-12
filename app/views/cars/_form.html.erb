@@ -1,0 +1,43 @@
+<%= form_for @car do |f| %>
+  <div class="form-group">
+    <%= f.label :Marka %>
+    <%= f.text_field :mark, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :Model %>
+    <%= f.text_field :model, class: "form-control" %>
+  </div>
+  <div class="field">
+    Dodaj zdjęcie....
+    <%= f.file_field :image %>
+  </div>
+  <div class="form-group">
+    <%= f.label :Rocznik %>
+    <%= f.number_field :year_prod, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :Cena %>
+    <%= f.number_field :prince, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :'Opis' %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :'Przebieg' %>
+    <%= f.number_field :mileage, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :'Rodzaj paliwa' %>
+    <%= f.text_field :fuel, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit 'Zapisz', class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,32 @@
+<h1>Samochód</h1>
+  <p>
+    <strong>Marka: </strong>
+    <%= "#{@car.mark}" %>
+  </p>
+  <p>
+    <strong>Model: </strong>
+    <%= "#{@car.model}" %>
+  </p>
+  <p>
+    <strong>Rocznik: </strong>
+    <%= "#{@car.year_prod}" %>
+  </p>
+  <p>
+    <strong>Cena: </strong>
+    <%= "#{@car.prince}" %>
+  </p>
+  <p>
+    <strong>Opis: </strong>
+    <%= "#{@car.description}" %>
+  </p>
+  <p>
+    <strong>Przebieg: </strong>
+    <%= "#{@car.mileage}" %>
+  </p>
+  <p>
+    <strong>Rodzaj paliwa: </strong>
+    <%= "#{@car.fuel}" %>
+  </p>
+  <div class="form-group">
+    <%= link_to 'Wróć', cars_path, class: "btn btn-primary" %>
+  </div>

@@ -1,1 +1,25 @@
 <h2>Samochody</h2>
+<%= form_tag cars_path, method: :get do %>
+  <div class="input-group">
+    <%= text_field_tag :q, params[:q], class: "form-control" %>
+    <span class="input-group-btn">
+      <%= submit_tag "Szukaj", class: "btn btn-default" %>
+    </span>
+  </div>
+<% end %>
+<h3>
+   <%= link_to 'Dodaj nowy samochód', new_car_path%>
+</h3>
+<% @cars.each do |car| %>
+  <div class="list-group-item-text">
+    <h4>
+      <%= "Samochód: #{car.mark}, Model: #{car.model}, Paliwo: #{car.fuel}" %>
+    </h4>
+  </div>
+  <div class="list-group-item-text">
+    <%= link_to 'Pokaż', car_path(car), class: "btn btn-xs btn-primary" %>
+    <%= link_to 'Zmień', edit_car_path(car), class: "btn btn-xs btn-primary" %>
+    <%= link_to 'Usuń', car_path(car),
+        method: :delete, data: { confirm: "Jesteś pewien?" },class: "btn btn-xs btn-danger" %>
+  </div>
+<% end %>
