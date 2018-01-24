@@ -1,5 +1,8 @@
 <h1>Samochód</h1>
   <p>
+    <%= image_tag (@car.image_url(:thumb).to_s) %>
+  </p>
+  <p>
     <strong>Marka: </strong>
     <%= "#{@car.mark}" %>
   </p>
@@ -12,7 +15,7 @@
     <%= "#{@car.year_prod}" %>
   </p>
   <p>
-    <strong>Cena: </strong>
+    <strong>Cena za dobę: </strong>
     <%= "#{@car.prince}" %>
   </p>
   <p>
