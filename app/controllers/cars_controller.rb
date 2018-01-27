@@ -2,7 +2,7 @@ class CarsController < ApplicationController
   before_action :set_car, except: [:index, :new, :create]
   def index
     @cars = Car.all.order(mark: :desc)
-    @cars = @car.where("mark like ?", params[:q]) if params[:q].present?
+    @cars = @cars.where("mark like ?", params[:q]) if params[:q].present?
   end
   def new
     @car = Car.new
@@ -29,6 +29,6 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
   end
   def car_params
-    params.require(:car).permit(:mark, :model, :image, :year_prod, :prince, :description, :mileage, :fuel)
+    params.require(:car).permit(:mark, :model, :image, :year_prod, :prince, :description, :mileage, :fuel, :limit, :supplement)
   end
 end
