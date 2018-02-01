@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, except: [:index, :new, :create]
   def index
     @bookings = Booking.all.order(mark: :desc)
   end
@@ -21,5 +22,8 @@ class BookingsController < ApplicationController
   private
   def booking_params
     params.require(:booking).permit(:last_name, :first_name, :email, :phone, :started_at,:ended_at, car_id)
+  end
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 end

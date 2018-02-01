@@ -1,7 +1,8 @@
-<%= form_for @booking do |f| %>
+<% #-binding.pry %>
+<%= simple_form_for @booking do |f| %>
   <div class="form-group">
-    <%= f.label :Wybierz samochód %>
-    <%= select_tag(:car_id), class: "form-control" %>
+    <%= f.label :'Wybierz samochód' %>
+    <%= f.association :car, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :Imię %>
