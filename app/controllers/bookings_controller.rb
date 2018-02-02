@@ -12,14 +12,21 @@ class BookingsController < ApplicationController
   end
   def edit
   end
-  def show
+  def update
+    @booking.update_attributes(booking_params)
+    render 'bookings/edit'
   end
-  def destory
+  def show
+    @car = Car.find(params[:id])
+  end
+  def destroy
+    @booking.destroy
+    redirect_to action: "index"
   end
 
   private
   def booking_params
-    params.require(:booking).permit(:last_name, :first_name, :email, :phone, :started_at,:ended_at, car_id)
+    params.require(:booking).permit(:last_name, :first_name, :email, :address, :phone, :started_at,:ended_at, :car_id)
   end
   def set_booking
     @booking = Booking.find(params[:id])
