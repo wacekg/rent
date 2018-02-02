@@ -1,0 +1,27 @@
+<h1>Wypożyczone samochody</h1>
+  <p>
+    <strong>Samochód: </strong>
+    <%= "#{@car.mark} #{@car.model}" %>
+  </p>
+  <p>
+    <strong>Klient: </strong>
+    <%= "#{@booking.first_name} #{@booking.last_name}" %>
+  </p>
+  <p>
+    <strong>Dane kontaktowe: </strong>
+    <%= "#{@booking.email} #{@booking.phone}" %>
+  </p>
+  <p>
+    <strong>Miejsce zamieszkania: </strong>
+    <%= "#{@booking.address}" %>
+  </p>
+    <strong>Wyjazd: </strong>
+    <%= "#{@booking.started_at}" %>
+  </p>
+  <p>
+    <strong>Powrót: </strong>
+    <%= "#{@booking.ended_at}" %>
+  </p>
+  <div class="form-group">
+    <%= link_to 'Wróć', cars_path, class: "btn btn-primary" %>
+  </div>

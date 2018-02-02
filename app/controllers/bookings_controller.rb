@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, except: [:index, :new, :create]
   def index
-    @bookings = Booking.all.order(mark: :desc)
+    @bookings = Booking.all.order(started_at: :desc)
   end
   def new
     @booking = Booking.new
@@ -9,8 +9,6 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.create(booking_params)
     render 'bookings/show'
-  end
-  def new
   end
   def edit
   end
