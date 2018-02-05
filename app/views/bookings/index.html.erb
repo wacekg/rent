@@ -1,13 +1,9 @@
 <h2>Wypożyczenia</h2>
 
-<h3>
-   <%= link_to 'Dodaj nowe wypożyczenie', new_booking_path%>
-</h3>
-<% #-binding.pry%>
 <% @bookings.each do |booking| %>
   <div class="list-group-item-text">
     <h4>
-      <%= "Klient: #{booking.first_name} #{booking.last_name}" %>
+      <%= "Klient: #{booking.first_name} #{booking.last_name}, Samochód: #{booking.car.mark} #{booking.car.model}" %>
     </h4>
   </div>
   <div class="list-group-item-text">
@@ -17,6 +13,9 @@
         method: :delete, data: { confirm: "Jesteś pewien?" },class: "btn btn-xs btn-danger" %>
   </div>
 <% end %>
+<h3>
+   <%= link_to 'Dodaj nowe wypożyczenie', new_booking_path%>
+</h3>
 <h3>
    <%= link_to 'Zatwierdź zamówienie klienta' %>
 </h3>

@@ -17,7 +17,6 @@ class BookingsController < ApplicationController
     render 'bookings/edit'
   end
   def show
-    @car = Car.find(params[:id])
   end
   def destroy
     @booking.destroy

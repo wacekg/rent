@@ -1,7 +1,7 @@
 <h1>Wypożyczone samochody</h1>
 <p>
   <strong>Samochód: </strong>
-  <%= "#{@car.mark} #{@car.model}" %>
+  <%= "#{@booking.car.mark} #{@booking.car.model}" %>
 </p>
   <p>
     <strong>Klient: </strong>
@@ -9,7 +9,7 @@
   </p>
   <p>
     <strong>Dane kontaktowe: </strong>
-    <%= "#{@booking.email} telefon: #{@booking.phone}" %>
+    <%= "#{@booking.email}, telefon: #{@booking.phone}" %>
   </p>
   <p>
     <strong>Miejsce zamieszkania: </strong>
