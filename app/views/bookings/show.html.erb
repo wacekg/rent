@@ -22,6 +22,10 @@
     <strong>Powrót: </strong>
     <%= "#{@booking.ended_at}" %>
   </p>
+  <p>
+    <strong>Potwierdzony: </strong>
+    <%= "#{@booking.approved}" %>
+  </p>
   <div class="form-group">
     <%= link_to 'Wróć', bookings_path, class: "btn btn-primary" %>
   </div>

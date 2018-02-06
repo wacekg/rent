@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
 
   private
   def booking_params
-    params.require(:booking).permit(:last_name, :first_name, :email, :address, :phone, :started_at,:ended_at, :car_id)
+    params.require(:booking).permit(:last_name, :first_name, :email, :address, :phone, :started_at,:ended_at, :car_id, :approved)
   end
   def set_booking
     @booking = Booking.find(params[:id])
