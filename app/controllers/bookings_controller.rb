@@ -13,7 +13,10 @@ class BookingsController < ApplicationController
   def edit
   end
   def update
-    @booking.update_attributes(booking_params)
+    if @booking.car.access
+      @booking.update_attributes(booking_params)
+    end
+    # binding.pry
     render 'bookings/edit'
   end
   def show
