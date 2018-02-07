@@ -1,35 +1,19 @@
 <%= form_for @car do |f| %>
+<div class="field">
+  <%= image_tag (@car.image_url(:thumb).to_s) %>
+  <%= f.file_field :image %>
+</div>
   <div class="form-group">
     <%= f.label :Marka %>
-    <%= f.text_field :mark, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
+    <%= f.text_field :mark %>
     <%= f.label :Model %>
-    <%= f.text_field :model, class: "form-control" %>
-  </div>
-  <div class="field">
-    Dodaj zdjęcie....
-    <%= f.file_field :image %>
-  </div>
-  <div class="form-group">
+    <%= f.text_field :model %>
+    <%= f.label :'Rodzaj paliwa' %>
+    <%= f.text_field :fuel %>
     <%= f.label :Rocznik %>
-    <%= f.number_field :year_prod, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :'Cena za dobę' %>
-    <%= f.number_field :prince, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :'Limit dzienny' %>
-    <%= f.number_field :limit, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :'Dopłata ponad limit' %>
-    <%= f.number_field :supplement, class: "form-control" %>
+    <%= f.number_field :year_prod %>
+    <%= f.label :'Przebieg' %>
+    <%= f.number_field :mileage %>
   </div>
 
   <div class="form-group">
@@ -37,14 +21,18 @@
     <%= f.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :'Przebieg' %>
-    <%= f.number_field :mileage, class: "form-control" %>
+  <div class="field">
+    <%= f.label :Dostępny %>
+    <%= f.check_box :access %>
   </div>
 
   <div class="form-group">
-    <%= f.label :'Rodzaj paliwa' %>
-    <%= f.text_field :fuel, class: "form-control" %>
+    <%= f.label :'Cena za dobę' %>
+    <%= f.number_field :prince %>
+    <%= f.label :'Limit dzienny' %>
+    <%= f.number_field :limit %>
+    <%= f.label :'Dopłata ponad limit' %>
+    <%= f.number_field :supplement %>
   </div>
 
   <div class="form-group">

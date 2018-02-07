@@ -37,6 +37,10 @@
     <strong>Rodzaj paliwa: </strong>
     <%= "#{@car.fuel}" %>
   </p>
+  <p>
+    <strong>Dostępny: </strong>
+    <%= "#{@car.access}" %>
+  </p>
   <div class="form-group">
     <%= link_to 'Wróć', cars_path, class: "btn btn-primary" %>
   </div>

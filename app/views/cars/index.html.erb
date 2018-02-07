@@ -7,16 +7,21 @@
     </span>
   </div>
 <% end %>
-<h3>
+<h4>
    <%= link_to 'Dodaj nowy samochód', new_car_path%>
-</h3>
+</h4>
 <% @cars.each do |car| %>
   <div class="list-group-item-text">
-    <h4>
+    <h5>
       <%= "Samochód: #{car.mark}, Model: #{car.model}, Paliwo: #{car.fuel}" %>
-    </h4>
+    </h5>
   </div>
   <div class="list-group-item-text">
+    <% if car.access == true %>
+      <%= "Dostępny" %>
+    <% else %>
+      <%= "Niedostępny" %>
+    <% end %>
     <%= link_to 'Pokaż', car_path(car), class: "btn btn-xs btn-primary" %>
     <%= link_to 'Zmień', edit_car_path(car), class: "btn btn-xs btn-primary" %>
     <%= link_to 'Usuń', car_path(car),
