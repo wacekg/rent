@@ -9,6 +9,32 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if notice %>
+      <div class="alert alert-info">
+      <%= notice %>
+      </div>
+    <% end %>
+
+    <% if alert %>
+      <div class="alert danger">
+      <%= alert %>
+      </div>
+    <% end %>
+ </body>
+
+  <% if user_signed_in? %>
+    <li>
+      <%= link_to('Wyloguj', destroy_user_session_path, method: :delete) %>
+    </li>
+    <% else %>
+    <li>
+      <%= link_to('Zaloguj', new_user_session_path)  %>
+    </li>
+  <% end %>
+
+  <body>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
