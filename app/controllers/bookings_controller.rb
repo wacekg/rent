@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
   def create
+    # binding.pry
     if @car.access
       @booking = Booking.create(booking_params)
     end

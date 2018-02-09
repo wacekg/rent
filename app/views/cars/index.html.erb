@@ -13,12 +13,13 @@
 <% @cars.each do |car| %>
   <div class="list-group-item-text">
     <h5>
-      <%= "Samochód: #{car.mark}, Model: #{car.model}, Paliwo: #{car.fuel}" %>
+      <%= "Samochód: #{car.mark}, #{car.model}, Paliwo: #{car.fuel}, Cena: #{car.prince} za dobę" %>
     </h5>
   </div>
   <div class="list-group-item-text">
     <% if car.access == true %>
       <%= "Dostępny" %>
+      <%= link_to 'Zarezerwuj', new_booking_path(car), class: "btn btn-xs btn-primary" %>
     <% else %>
       <%= "Niedostępny" %>
     <% end %>
