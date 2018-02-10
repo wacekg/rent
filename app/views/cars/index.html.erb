@@ -7,9 +7,11 @@
     </span>
   </div>
 <% end %>
-<h4>
-   <%= link_to 'Dodaj nowy samochód', new_car_path%>
-</h4>
+<% if current_user %>
+  <h4>
+    <%= link_to 'Dodaj nowy samochód', new_car_path%>
+  </h4>
+<% end %>
 <% @cars.each do |car| %>
   <div class="list-group-item-text">
     <h5>
@@ -19,14 +21,18 @@
   <div class="list-group-item-text">
     <% if car.access == true %>
       <%= "Dostępny" %>
-      <%= link_to 'Zarezerwuj', new_booking_path(car), class: "btn btn-xs btn-primary" %>
+      <%= link_to 'Zarezerwuj', new_booking_path(params: {car_id: car.id}), class: "btn btn-xs btn-primary" %>
     <% else %>
       <%= "Niedostępny" %>
     <% end %>
     <%= link_to 'Pokaż', car_path(car), class: "btn btn-xs btn-primary" %>
-    <%= link_to 'Zmień', edit_car_path(car), class: "btn btn-xs btn-primary" %>
-    <%= link_to 'Usuń', car_path(car),
-        method: :delete, data: { confirm: "Jesteś pewien?" },class: "btn btn-xs btn-danger" %>
+    <% if current_user %>
+      <%= link_to 'Zmień', edit_car_path(car), class: "btn btn-xs btn-primary" %>
+    <% end %>
+    <% if current_user %>
+      <%= link_to 'Usuń', car_path(car),
+          method: :delete, data: { confirm: "Jesteś pewien?" },class: "btn btn-xs btn-danger" %>
+    <% end %>
   </div>
 <% end %>
 <h3>

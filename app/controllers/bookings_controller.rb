@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
     @bookings = Booking.all.order(started_at: :desc)
   end
   def new
-    @booking = Booking.new
+    @booking = Booking.new(car_id: params[:car_id])
   end
   def create
     # binding.pry
@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
   def edit
   end
   def update
+    authorize @booking
     if @car.access
       @booking.update_attributes(booking_params)
     end
@@ -25,6 +26,7 @@ class BookingsController < ApplicationController
   def show
   end
   def destroy
+    authorize @booking
     @booking.destroy
     redirect_to action: "index"
   end

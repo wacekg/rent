@@ -1,7 +1,7 @@
 <%= simple_form_for @booking do |f| %>
   <div class="form-group">
     <%= f.label :'Wybierz samochód' %>
-    <%= f.association :car, label_method: :mark, class: "form-control" %>
+    <%= f.association :car, label_method: :mark, collection: Car.where(access: true),  class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :Imię %>
@@ -22,8 +22,10 @@
     <%= f.date_field :started_at %>
     <%= f.label :Powrót %>
     <%= f.date_field :ended_at %>
-    <%= f.label :Potwierdzony %>
-    <%= f.check_box :approved %>
+    <% if current_user %>
+      <%= f.label :Potwierdzony %>
+      <%= f.check_box :approved %>
+    <% end %>
   </div>
   <div class="form-group">
     <%= f.submit 'Zapisz', class: "btn btn-primary" %>

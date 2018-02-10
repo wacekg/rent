@@ -5,21 +5,25 @@ class CarsController < ApplicationController
     @cars = @cars.where("mark like ?", params[:q]) if params[:q].present?
   end
   def new
+    authorize Car
     @car = Car.new
   end
   def create
+    authorize @car
     @car = Car.create(car_params)
     render 'cars/show'
   end
   def edit
   end
   def update
+    authorize @car
     @car.update_attributes(car_params)
     render 'cars/edit'
   end
   def show
   end
   def destroy
+    authorize @car
     @car.destroy
     redirect_to action: "index"
   end
