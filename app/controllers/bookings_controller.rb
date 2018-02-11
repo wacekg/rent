@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
     authorize @booking
     if @car.access
       @booking.update_attributes(booking_params)
+      @car.update_column(:access, !@booking.approved)
     end
     render 'bookings/edit'
   end
@@ -28,6 +29,7 @@ class BookingsController < ApplicationController
   def destroy
     authorize @booking
     @booking.destroy
+    @booking.car.update_column(:access, true)
     redirect_to action: "index"
   end
 

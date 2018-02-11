@@ -7,4 +7,5 @@ class Booking < ApplicationRecord
   validates :phone, presence: true, length: { maximum: 12 }
   validates :started_at, presence: {message: "wpisz pczątek rezerwacji"}
   validates :ended_at, presence: {message: "wpisz koniec rezerwacji"}
+  acts_as_paranoid
 end
