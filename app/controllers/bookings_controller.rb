@@ -8,7 +8,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(car_id: params[:car_id])
   end
   def create
-    # binding.pry
     if @car.access
       @booking = Booking.create(booking_params)
     end
@@ -31,6 +30,9 @@ class BookingsController < ApplicationController
     @booking.destroy
     @booking.car.update_column(:access, true)
     redirect_to action: "index"
+  end
+  def confirm
+    @booking.update_column(:approved, true)
   end
 
   private

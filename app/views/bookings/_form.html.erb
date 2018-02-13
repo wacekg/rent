@@ -19,9 +19,9 @@
   </div>
   <div class="form-group">
     <%= f.label :Wyjazd %>
-    <%= f.date_field :started_at %>
+    <%= f.date_field :started_at, min: Date.today %>
     <%= f.label :Powrót %>
-    <%= f.date_field :ended_at %>
+    <%= f.date_field :ended_at, min: Date.today %>
     <% if current_user %>
       <%= f.label :Potwierdzony %>
       <%= f.check_box :approved %>

@@ -9,13 +9,15 @@
   <div class="list-group-item-text">
     <%= link_to 'Pokaż', booking_path(booking), class: "btn btn-xs btn-primary" %>
       <% if booking.approved %>
-        <%= "Potwierdzony, wyjazd: #{booking.started_at}, powrót: #{booking.ended_at}" %>
+        <%= "Potwierdzony, Wyjazd: #{booking.started_at}, Powrót: #{booking.ended_at}" %>
       <% else %>
         <%= "wyjazd: #{booking.started_at}, powrót: #{booking.ended_at}" %>
         <% if current_user %>
-          <%= link_to 'Zmień', edit_booking_path(booking), class: "btn btn-xs btn-primary" %>
-        <% end %>  
+          <%= link_to 'Zatwierdź', booking_path(booking),
+              method: :confirm, data: { confirm: "Zatwierdzasz?" },class: "btn btn-xs btn-danger" %>
+        <% end %>
       <% end %>
+      <%= button_to "Zmień", {:controller=>"bookings", :action => "confirm"} %>
     <% if current_user %>
       <%= link_to 'Usuń', booking_path(booking),
           method: :delete, data: { confirm: "Jesteś pewien?" },class: "btn btn-xs btn-danger" %>
