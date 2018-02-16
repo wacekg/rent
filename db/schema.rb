@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180211110910) do
+ActiveRecord::Schema.define(version: 20180216132425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 20180211110910) do
     t.index ["deleted_at"], name: "index_cars_on_deleted_at"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "commenter"
+    t.text "body"
+    t.bigint "car_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_comments_on_car_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -68,4 +77,5 @@ ActiveRecord::Schema.define(version: 20180211110910) do
   end
 
   add_foreign_key "bookings", "cars"
+  add_foreign_key "comments", "cars"
 end
