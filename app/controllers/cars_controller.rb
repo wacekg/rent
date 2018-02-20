@@ -21,6 +21,7 @@ class CarsController < ApplicationController
     render 'cars/edit'
   end
   def show
+    @comment = Comment.new(commenter: session[:commenter])
   end
   def destroy
     authorize @car

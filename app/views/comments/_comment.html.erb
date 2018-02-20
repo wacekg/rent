@@ -1,0 +1,13 @@
+<p>
+  <strong>Klient: </strong>
+  <%= comment.commenter %>
+</p>
+<p>
+  <strong>Opinia: </strong>
+  <%= comment.body %>
+</p>
+<div class="form-group">
+  <%= link_to 'Usuń komentarz', car_comment_path(@car, comment), class: "btn btn-primary",
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+</div>

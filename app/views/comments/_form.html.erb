@@ -1,0 +1,13 @@
+<%= form_for([@car, @comment]) do |f| %>
+    <div class="form-group">
+      <%= f.label :Klient %>
+      <%= f.text_field :commenter, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :Opinia %>
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit 'Zapisz', class: "btn btn-primary"%>
+    </div>
+<% end %>

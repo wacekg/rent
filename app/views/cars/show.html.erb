@@ -41,6 +41,13 @@
     <strong>Dostępny: </strong>
     <%= "#{@car.access}" %>
   </p>
+
+  <h2>Opinia</h2>
+    <% @car.comments.each do |comment| %>
+      <%= render 'comments/comment', comment: comment %>
+    <% end %>
+    <%= render 'comments/form' %>
+
   <div class="form-group">
     <%= link_to 'Wróć', cars_path, class: "btn btn-primary" %>
   </div>
